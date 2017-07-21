@@ -78,6 +78,15 @@ test('GitHub issues', function (t) {
   t.equal(moment.parseFormat('Aug 11 2015 11:20a'), 'MMM D YYYY h:mma', '#65 Aug 11 2015 11:20p → MMM D YYYY H:mmp')
   t.equal(moment.parseFormat('Aug 11 2015 11:20P'), 'MMM D YYYY h:mmA', '#65 Aug 11 2015 11:20p → MMM D YYYY H:mmp')
   t.equal(moment.parseFormat('Aug 11 2015 11:20A'), 'MMM D YYYY h:mmA', '#65 Aug 11 2015 11:20p → MMM D YYYY H:mmp')
+
+  // https://github.com/gr2m/moment-parseformat/issues/67
+  t.equal(moment.parseFormat('SUNNYVALE'), 'SUNNYVALE', '#67 SUNNYVALE → dddNYVALE')
+
+  // https://github.com/gr2m/moment-parseformat/issues/68
+  t.equal(moment.parseFormat('Su_2016_Aug_3'), 'dd_YYYY_MMM_D', '#68 Su_2016_Aug_3 → Su_YYYY_MMM_D')
+  t.equal(moment.parseFormat('Su_2016_Aug_3rd_04:00'), 'dd_YYYY_MMM_Do_HH:mm', '#68 Su_2016_Aug_3 → Su_YYYY_MMM_D')
+  t.equal(moment.parseFormat('Su2016Aug01'), 'ddYYYYMMMDD', '#68 Su_2016_Aug_3 → Su_YYYY_MMM_D')
+  t.equal(moment.parseFormat('Sunday2016August01'), 'ddddYYYYMMMMDD', '#68 Su_2016_Aug_3 → Su_YYYY_MMM_D')
 })
 
 test('GitHub issues - special cases', function (t) {
